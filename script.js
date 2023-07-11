@@ -1,10 +1,10 @@
 // array to store details
 let orderList = [];
+let display = document.getElementById("findmeal").attributes.value;
+const mealPrice =  document.getElementById("mealPrice").attributes.value.nodeValue; //nodevalue is the property that provides access to the text or comment on HTML element.
+const mealName = document.getElementById("mealName").attributes.value.nodeValue;   //used to collect the text content of the 'value' attribute withing the attribute object 
 
-const mealPrice =
-  document.getElementById("mealPrice").attributes.value.nodeValue;
-const mealName = document.getElementById("mealName").attributes.value.nodeValue;
-//function to add detailes to the array
+//function to add detailes to the array.
 function addMealChoice() {
   let side = document.querySelectorAll('input[type="radio"]:checked')[0].value;
   let sauces = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -16,11 +16,44 @@ function addMealChoice() {
   };
   
   // let sauces = document.getElementsByName("sauce").value;
-// console.log(sauces);
 orderList.push(mealObj)
-console.log(mealObj)
-}
+console.log(mealObj)     //diplays the updated order list in the console
 
+// Display in modal pop-up the contents of the object 
+console.log(orderList)
+findmeal.innerHTML = JSON.stringify(orderList);     //findmeal is the id for the the content sec of the modal line 68 html. JSON.stringify 
+};
+// this code is for when i click my image and then it should hold the img in an array , i think i should concat ........
+let imgEle = document.getElementById("English Muffin");
+imgEle.addEventListener('click' , function(){
+  orderList.push("English Muffin") ; 
+});
+console.log(orderList)
+
+// This is the quantity button where you increase order or decrease order.
+  function increasebtn() {
+    document.getElementById("myNumber").stepUp(1);
+  };
+  function decreasebtn() {
+    document.getElementById("myNumber").stepDown(1);
+  };
+    
+  function totalClick(click){
+    const totalClicks= document.getElementById("totalClicks");
+    const sumvalue = parseInt(totalClicks.innerText) + click; 
+    totalClicks.innerText = sumvalue; 
+
+  // Avoid negetives -1
+    if(sumvalue < 0){
+      totalClicks.innerText = 0
+    }
+
+  //Reset values values to 0
+    if(click == 0){
+      totalClicks.innerText = 0
+    }
+  };
+    
 //function to get values of selected sauces
 function getSelectSauces(sauces){
   let values = []
@@ -31,39 +64,7 @@ function getSelectSauces(sauces){
   return values
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// THIS IS ALL FOR THE MODAL CONTENT ONLY AND DISPLAYING THE CONTENTS OF orderList =[] 
 //Get the modal
 let modal = document.getElementById("myModal");
 //Get the button that open the modal
@@ -85,3 +86,5 @@ window.onclick = function goBack() {
     modal.style.display = "none";
   }
 };
+
+//The end . 

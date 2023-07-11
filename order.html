@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link  rel="stylesheet" type="text/css" href="style.css">
+  
   <title>Ordering Page</title>
 </head>
 <body>
@@ -19,16 +20,17 @@
     <div class="category">
       <h2>Breakfast</h2>
     <div class="class"> 
-          <img src="./all Icons/breakfast-sandwich-1.jpg" onclick="displayMealInfo()" style="height: 200px;"   alt="Breakfast 1" id="meal-1"value="0" >
+          <img src="./all Icons/breakfast-sandwich-1.jpg" style="height: 200px;" id="English Muffin" value="0" >
           <h3 id="mealName" value="English Muffin">English Muffin</h3>
           <p id="mealPrice" value="20.99"><b>R 20.99</b></p>
-          <fieldset>
+    </div>
+
+        <fieldset>
             <legend >Side Food </legend>
-            <div class="optionsRadio" onclick="">
+            <div class="optionsRadio">
               <label><input type="radio" name="side" value="Chips" >Chips</label>
               <label><input type="radio" name="side" value="Salad" > Salad </label>
               <label><input type="radio" name="side" value="Fruit Salad" > Fruit Salad </label>
-              <!-- <button type="button" onclick=""> Sides </button> -->
             </div>
           </fieldset>
           <div>
@@ -45,17 +47,25 @@
       </div>
       <button class="viewOrder" onclick="addMealChoice()" >Add to Order  </button><br>
     </div>    
-
+    </div>
+    <div id="increserBtn">
+      <p>
+        <button type="button" onclick="totalClick(1)">  + </button>
+        <span id="totalClicks">0</span>
+        <button type="button" onclick="totalClick(-1)">  - </button>
+        </p>
+        <button type="button" onclick="totalClick(0)"> RESET </button>
+      
     </div>
   </div>
     <!-- Trigger/Open The Modal -->
-    <button id="myBtn" onclick="">View Order !</button>
+    <button id="myBtn" onclick="click()">View Order !</button>
     <!-- The Modal -->
     <div id="myModal" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close"> &times;</span> 
-      <p>Order Summary :  </p>
+      <p id="findmeal">Order Summary :  </p>
     </div>
     </div>
     <script src="script.js"></script>
